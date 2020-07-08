@@ -32,6 +32,11 @@ namespace Estacionamento.Services
             var minutos = duracao.Minutes;
             var segundos = duracao.Seconds;
 
+            if((totalHoras == 0 && minutos <= 30 && segundos == 0) || (totalHoras == 0 && minutos < 30))
+            {
+                return tabela.ValorHoraInicial / 2;
+            }
+
             if ((minutos >= 10 && segundos > 0) || minutos > 10)
             {
                 totalHoras++;
