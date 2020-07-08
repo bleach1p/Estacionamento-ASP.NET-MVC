@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Estacionamento.AccessLayer.Entities.RegistroVeiculo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Registro</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlacaVeiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataSaida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duracao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorPagar)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlacaVeiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataSaida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duracao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorPagar)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                @if (item.DataSaida == null)
+                {
+                    <a asp-action="MarcarSaida" asp-route-id="@item.Id">Marcar Saída</a>
+                    <span>|</span>
+                }
+                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@model Estacionamento.AccessLayer.Entities.TabelaPreco
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Tabela de Preço</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ValorHoraInicial" class="control-label"></label>
+                <input asp-for="ValorHoraInicial" class="form-control" />
+                <span asp-validation-for="ValorHoraInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorHora" class="control-label"></label>
+                <input asp-for="ValorHora" class="form-control" />
+                <span asp-validation-for="ValorHora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VigenciaInicial" class="control-label"></label>
+                <input asp-for="VigenciaInicial" class="form-control" />
+                <span asp-validation-for="VigenciaInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VigenciaFinal" class="control-label"></label>
+                <input asp-for="VigenciaFinal" class="form-control" />
+                <span asp-validation-for="VigenciaFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirmar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
